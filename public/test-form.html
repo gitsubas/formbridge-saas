@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Formbridge Submission</title>
+</head>
+<body>
+    <h1>Submit to Formbridge API</h1>
+    
+    <h3>Normal Submission</h3>
+    <form id="normal-form" action="/api/f/123e4567-e89b-12d3-a456-426614174000" method="POST">
+        <label>Email: <input type="email" name="email" value="test@example.com"></label><br><br>
+        <label>Message: <textarea name="message">Hello world from the browser agent!</textarea></label><br><br>
+        <button type="submit" id="submit-normal">Submit Normal</button>
+    </form>
+
+    <hr>
+
+    <h3>Spam (Honeypot) Submission</h3>
+    <form id="spam-form" action="/api/f/123e4567-e89b-12d3-a456-426614174000" method="POST">
+        <label>Email: <input type="email" name="email" value="spammer@example.com"></label><br><br>
+        <!-- Honeypot field (normally hidden via CSS) -->
+        <label style="color:red">Honeypot (DO NOT FILL): <input type="text" name="_my_honeypot" value="im-a-bot"></label><br><br>
+        <button type="submit" id="submit-spam">Submit Spam</button>
+    </form>
+</body>
+</html>
